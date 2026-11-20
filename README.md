@@ -1,5 +1,10 @@
 
-# Specification 'a11y-req-ja'
+# a11y-req-ja
 
-This is the repository for a11y-req-ja. You're welcome to contribute! Let's make the Web rock our socks
-off!
+Japanese Accessibility Requirements for the Web
+
+This document describes accessibility requirements for web content and user agents arising from the characteristics of the Japanese language and Japanese writing system, including Japanese typography.
+
+It is developed by the 
+[Accessibility Internationalization Community Group](https://www.w3.org/community/global-inclusion/).
+
