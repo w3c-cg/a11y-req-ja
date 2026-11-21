@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Japanese Accessibility Requirements for the Web</title>
+
+  <script
+    src="https://www.w3.org/Tools/respec/respec-w3c"
+    class="remove"
+    defer></script>
+
+  <script class="remove">
+    var respecConfig = {
+      specStatus: "CG-DRAFT",
+      group: "cg/global-inclusion",
+      shortName: "a11y-req-ja",
+      editors: [
+          { name: "村田真 (MURATA Makoto [FAMILY Given])", company: "情報アクセシビリティ機構 Information Accessibility Institute", w3cid: "171631", },
+      ],
+      github: {
+          repoURL: "w3c-cg/a11y-req-ja",
+          branch: "gh-pages",
+      },
+      license: "w3c-software-doc",
+      copyrightStart: "2026",	
+      xref: true
+    };
+  </script>
+</head>
+
+<body>
+  <section id="sotd">
+    <p>This is a draft developed under the
+      <a href="https://www.w3.org/community/global-inclusion/">Accessibility Internationalization Community Group</a>.
+    </p>
+  </section>
+    <section id="abstract">
+      <p>This document identifies accessibility requirements arising from the characteristics of the Japanese language and writing system. It provides a foundation for improving Web accessibility specifications and related technologies for Japanese users who experience reading difficulties. The requirements described in this document may apply to Web content, user agents, or both, depending on their nature.</p>
+    </section>
+    <section id="introduction">
+      <h2>Introduction</h2>
+      <section id="purpose">
+        <h2>Purpose</h2>
+        <p>The purpose of this document is to provide a common reference for the development, maintenance, and review of Web accessibility specifications and related technologies for Japanese. It does so by identifying accessibility requirements that arise from the characteristics of the Japanese language and writing system, with particular attention to the needs of users who experience reading difficulties.</p>
+        <p>The requirements identified in this document may also be useful to developers of authoring tools, user agents, reading systems, digital publication technologies, and other implementations that support Japanese content.</p>
+      </section>
+      <section id="relationship-to-japanese-script-resources">
+        <h2>Relationship to Japanese Script Resources</h2>
+        <p>This document assumes familiarity with the terminology and concepts defined in Japanese Script Resources (<a href="https://www.google.com/url?q=https://nam12.safelinks.protection.outlook.com/?url%3Dhttps%253A%252F%252Fwww.w3.org%252FTR%252Fjpan-lreq%252F%26data%3D05%257C02%257Cjtoles7%2540gatech.edu%257Ce67bde3ed23a4aaa265e08dee7d155ae%257C482198bbae7b4b258b7a6d7f32faa083%257C1%257C0%257C639203083453362002%257CUnknown%257CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%253D%253D%257C0%257C%257C%257C%26sdata%3DrQHpFcu93KJU%252F%252FD7oKkNGr%252FAedti2CmF4P4zcigMNOo%253D%26reserved%3D0&amp;sa=D&amp;source=editors&amp;ust=1795218048564646&amp;usg=AOvVaw3VP9vYaUGElPokSxEFhvT6">https://www.w3.org/TR/jpan-lreq/</a>). Rather than repeating general descriptions of the Japanese writing system, this document highlights only those characteristics that have significant accessibility implications and derives accessibility requirements from them.</p>
+      </section>
+      <section id="applicability-to-web-content-user-agents-and-authoring-tools">
+        <h2>Applicability to Web Content, User Agents, and Authoring Tools</h2>
+        <p>The accessibility requirements identified in this document are applicable to different parts of the Web ecosystem. Some requirements apply to Web content, while others apply to user agents or authoring tools. Certain requirements may be satisfied through cooperation among multiple technologies.</p>
+        <p>This document does not assign individual requirements to particular specifications or implementations. Rather, it provides a common reference that may be used in the development, maintenance, and review of Web accessibility specifications and related technologies.</p>
+      </section>
+    </section>
+    <section id="accessibility-relevant-characteristics-of-japanese">
+      <h2>Accessibility-Relevant Characteristics of Japanese</h2>
+      <p>The following characteristics of Japanese have significant implications for accessibility.</p>
+      <section id="bunsetsu">
+        <h2>Bunsetsu</h2>
+        <p>A bunsetsu is a grammatical unit consisting of a lexical word followed by zero or more grammatical elements. For example, the Japanese sentence <em>トムはメアリーが好きだ</em> consists of three bunsetsu: <em>トムは</em>, <em>メアリーが</em>, and <em>好きだ</em>. The lexical words are <em>トム</em>, <em>メアリー</em>, and <em>好き</em>, while <em>は</em>, <em>が</em>, and <em>だ</em> are grammatical elements.</p>
+        <p>If the grammatical elements are removed, the sentence becomes <em>トム メアリー 好き</em>, making it impossible to determine who likes whom.</p>
+        <p>The order of bunsetsu can also change. For example, <em>メアリーがトムは好きだ</em> has essentially the same meaning as <em>トムはメアリーが好きだ</em>. Although the order of the bunsetsu is different, the particles <em>は</em> and <em>が</em> still identify the grammatical relationships.</p>
+        <p>Bunsetsu plays a central role in Japanese reading and is often a more useful unit than the word for accessibility purposes.</p>
+        <p>Note: Korean eojeol is similar to bunsetsu.</p>
+      </section>
+      <section id="kanji-and-kana">
+        <h2>Kanji and Kana</h2>
+        <p>Modern Japanese uses a combination of kanji, hiragana, and katakana. These scripts have different linguistic functions and present different accessibility challenges for different users.</p>
+        <section id="1-kanji">
+          <h2>1) Kanji</h2>
+          <p>In compulsory education, children learn 2136 kanji characters (<a href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/J%25C5%258Dy%25C5%258D_kanji&amp;sa=D&amp;source=editors&amp;ust=1795218048567212&amp;usg=AOvVaw2Rl-SLuBgaZ_2eZgoEcFR4">the jōyō kanji set</a>) defined by the Japanese government. Beyond compulsory education, there is no official list of additional characters to learn. However, the standard Japanese coded character set, <a href="https://www.google.com/url?q=https://en.wikipedia.org/wiki/JIS_X_0213&amp;sa=D&amp;source=editors&amp;ust=1795218048567412&amp;usg=AOvVaw2g2cqK8RKXOZrmoKM_YSAv">JIS X 0213</a>, contains 10,050 kanji characters. Although most of these characters occur infrequently and readers are not expected to know all of them, newspapers, books, personal names, place names, and specialized documents regularly use several thousand kanji outside the <em>jōyō</em> kanji set. Some Japanese readers therefore cannot recognize or read such characters without assistance.</p>
+          <p>Thus, the readability of Japanese text depends on whether readers are familiar with the kanji being used. Reading aids are therefore important for many users, including children, people with dyslexia, language learners, and readers encountering uncommon characters.</p>
+        </section>
+        <section id="2-kana">
+          <h2>2) Kana</h2>
+          <p>Some readers experience difficulty reading kana, including both hiragana and katakana. The nature and severity of these difficulties vary among individuals. For these readers, text written primarily in kana can present additional reading challenges.</p>
+        </section>
+      </section>
+      <section id="unspaced-text-and-line-breaks-within-bunsetsu">
+        <h2>Unspaced text and line breaks within bunsetsu</h2>
+        <p>Japanese presents two related challenges for some readers. First, text is normally written without spaces between bunsetsu. Second, Japanese line-breaking rules generally allow line breaks within bunsetsu. Both make it harder to perceive bunsetsu as coherent units, especially in kana-dominant text.</p>
+        <p>Since spaces do not mark bunsetsu boundaries, readers often rely on the alternation of kanji and kana to recognize bunsetsu boundaries. When text contains a high proportion of kana, these visual cues become weaker, making segmentation more difficult.</p>
+        <p>The absence of explicit bunsetsu boundaries can present a major obstacle for some readers, especially those who experience reading difficulties. Providing automatic bunsetsu segmentation or allowing users to insert spaces between bunsetsu can significantly improve readability for these readers.</p>
+        <p>Example: The sentence 太鼓とバチを持ってきて ("Bring the drum and the drumsticks.") becomes たいことばちをもってきて when written entirely in hiragana. A Japanese reader with dyslexia reported interpreting this as たい｜ことば ｜ち (red snapper | word | blood)をもってきて, rather than たいこ｜と｜ばち(drum|and|stick)をもってきて, and therefore could not understand the instruction. This example illustrates how the absence of explicit bunsetsu boundaries can interfere with text segmentation and comprehension.</p>
+        <p>A related issue is line breaking within bunsetsu. Japanese line-breaking rules generally allow line breaks within bunsetsu. For the same reason as in unspaced text, when text contains a high proportion of kana, readers find it difficult to recover the intended bunsetsu.  Line breaks within bunsetsu can thus present a major obstacle for those who experience reading difficulties.</p>
+        <p><strong>Note</strong>: Modern Korean differs from Japanese in two important respects. First, Chinese characters are now used only rarely in ordinary text, and Hangul is the dominant writing system. Second, spaces between eojeol (Korean syntactic words) are mandatory in standard orthography. However, Korean line-breaking rules still allow line breaks within an eojeol. Thus, unlike Japanese, Korean readers are not required to infer eojeol boundaries from the writing system itself, although line breaks may still interrupt an eojeol.</p>
+        <p><strong>Note:</strong> Japanese Braille provides an instructive contrast. Since Braille does not use kanji, it employs standardized spacing between bunsetsu as part of its orthography. This makes bunsetsu boundaries explicit, reducing the need for readers to infer segmentation from visual cues such as the alternation of kanji and kana.</p>
+      </section>
+      <section id="vertical-and-horizontal-writing">
+        <h2>Vertical and Horizontal Writing</h2>
+        <p>Japanese is commonly written in both vertical and horizontal directions. Books, newspapers, and literary works are often published vertically, while web pages, technical documents, and many digital publications are commonly presented horizontally.</p>
+        <p>While many readers can read both writing directions without difficulty, some readers find vertical text substantially more difficult to read than horizontal text. Reports from Japanese accessibility organizations and readers with dyslexia indicate that vertical writing may present a significant accessibility barrier.  A much smaller number of readers report the opposite preference.</p>
+      </section>
+      <section id="scroll-direction">
+        <h2>Scroll direction</h2>
+        <p>Much web content is presented as a continuous scrolling document rather than as a sequence of discrete pages. The <em>scroll direction</em> is the physical direction in which users move through the content, typically either vertically or horizontally.</p>
+        <p>In Japanese, the scroll direction depends on the writing mode. Horizontal writing is normally presented using vertical scrolling, whereas vertical writing is normally presented using horizontal scrolling.</p>
+        <p>As a result, the meaning of the upward and downward navigation keys or buttons may differ between writing modes if they are interpreted as commands for moving forward or backward through the content rather than simply moving in a physical direction. This behavior is natural for sighted users, who can readily determine the writing mode visually.</p>
+        <p>Blind users and some users with severe low vision, however, cannot determine whether content is presented horizontally or vertically. They therefore benefit from navigation controls whose meaning remains consistent regardless of the writing mode.</p>
+      </section>
+      <section id="page-progression-direction">
+        <h2>Page progression direction</h2>
+        <p>Some web content (most notably EPUB publications) is presented as a sequence of discrete pages. The <em>page progression direction</em> specifies whether the pages are ordered from left to right or from right to left.  As described in Japanese Layout Requirements (JLREQ), the page progression direction in Japanese depends on the writing mode. In horizontal writing, pages progress from left to right, whereas in vertical writing they progress from right to left. As a result, the meaning of the leftward and rightward navigation keys or buttons differs between writing modes. That is, “rightward” means “next page” for horizontal writing, but it means “previous page” in vertical writing.  This is natural for sighted users, who can readily determine the writing mode visually.</p>
+        <p>Blind users and some users with severe low vision, however, cannot determine whether content is presented horizontally or vertically. They therefore benefit from navigation controls whose meaning remains consistent regardless of the writing mode.</p>
+      </section>
+      <section id="ruby-annotations">
+        <h2>Ruby Annotations</h2>
+        <p>Ruby annotations provide pronunciation or other explanatory information associated with base text. In Japanese, they are most commonly used to indicate the pronunciation of kanji.</p>
+        <p>The need for ruby annotations varies considerably among individuals. Some readers require ruby for nearly all kanji, while others need it only for unfamiliar or difficult characters. The amount of ruby required varies considerably among individuals.</p>
+        <p>Note: The Shogakukan World J Literature Library, a Japanese digital collection of world classics for children, provides several levels of ruby depending on the reader's proficiency, demonstrating that ruby quantity need not be limited to a simple on/off choice.</p>
+        <p>Ruby annotations themselves can also create accessibility barriers. Some readers have difficulty distinguishing ruby annotations from its base text, while others, including some people with low vision, find conventional ruby annotations too small to read comfortably. Allowing users to adjust the size and color of ruby annotations, or to choose other alternative presentations, can substantially improve readability.</p>
+        <p>Unlike ordinary text, ruby annotations form a parallel annotation associated with the base text rather than a simple sequence of characters. This means that Japanese text cannot always be regarded as a simple sequence of characters.</p>
+        <p>Note: See <a href="https://www.google.com/url?q=https://www.w3.org/TR/ruby-tts-req/&amp;sa=D&amp;source=editors&amp;ust=1795218048571745&amp;usg=AOvVaw2InKpMeJPgwch5a4v14FBd">“Text-to-Speech Rendering of Electronic Documents Containing Ruby: User Requirements (W3C DNote)”</a>.</p>
+      </section>
+      <section id="user-perceived-characters">
+        <h2>User-Perceived Characters</h2>
+        <p>In Japanese, user-perceived characters are well represented by Unicode extended grapheme clusters. Consequently, this document uses extended grapheme clusters as the basis for character-level accessibility requirements.</p>
+        <p>Note: Emoji require special consideration and are not discussed in this document yet.</p>
+      </section>
+    </section>
+    <section id="accessibility-requirements-for-japanese-text">
+      <h2>Accessibility Requirements for Japanese Text</h2>
+      <p>The characteristics of the Japanese language and writing system described in Section 2 give rise to accessibility requirements that are not fully addressed by general accessibility guidelines. This section identifies those requirements and indicates whether they apply to Web content, user agents, authoring tools, or a combination of these.</p>
+      <p><strong>Editor's note:</strong> This section is currently a preliminary outline and will be expanded in future revisions.</p>
+      <section id="writing-direction">
+        <h2>Writing Direction</h2>
+        <p>User agents should allow users to switch between horizontal and vertical presentation when the content semantics permit such a transformation.</p>
+        <p>Authors should specify the intended writing direction.</p>
+      </section>
+      <section id="phrase-segmentation">
+        <h2>Phrase Segmentation</h2>
+        <p>User agents should support phrase segmentation (bunsetsu segmentation) to improve readability.</p>
+        <p>Authors should not encode phrase boundaries in ways that prevent user adaptation.</p>
+        <p>Automatic phrase segmentation should be available for Japanese text.</p>
+      </section>
+      <section id="ruby">
+        <h2>Ruby</h2>
+        <p>User agents should allow users to control the presentation of ruby.</p>
+        <p>User agents should support the discovery of the presence and accessibility characteristics of ruby.</p>
+        <p>User agents should support appropriate speech rendering of ruby.</p>
+      </section>
+      <section id="page-progression-direction-2">
+        <h2>Page Progression Direction</h2>
+        <p>User agents should provide page navigation that does not require blind users or users with severe low vision to know the writing mode.</p>
+        <p>Navigation controls should remain semantically consistent for such users regardless of page progression direction.</p>
+      </section>
+      <section id="text-spacing-and-layout">
+        <h2>Text Spacing and Layout</h2>
+        <p>User agents should support adjustment of character spacing, line spacing, paragraph spacing, and line length for Japanese text.</p>
+        <p>Such adjustments should preserve readability of Japanese typography.</p>
+      </section>
+      <section id="line-breaking">
+        <h2>Line Breaking</h2>
+        <p>User agents should preserve Japanese line-breaking behavior when adapting presentation.</p>
+        <p>Adaptation should not introduce line breaks that unnecessarily reduce readability.</p>
+      </section>
+      <section id="font-selection">
+        <h2>Font Selection</h2>
+        <p>User agents should allow users to select fonts appropriate for their reading needs.</p>
+        <p>Authors should avoid relying on a single typeface to convey meaning.</p>
+      </section>
+    </section>
+    <section id="clear-language">
+      <h2>Clear Language</h2>
+      <p>The Japanese government's Guidelines for Official Writing（公用文の書き方）recommends several syntactic principles for improving readability. While some of these principles are language-independent, the grammatical characteristics of Japanese make others particularly important.</p>
+      <p>(Guidelines for Official Writing (Japanese): https://www.bunka.go.jp/seisaku/bunkashingikai/kokugo/hokoku/pdf/93651301_01.pdf)</p>
+      <p>If WCAG 3 includes a requirement such as "No nested clauses", it should also consider these syntactic principles, which are at least as important for the readability of Japanese. These principles are highly relevant to other head-final languages with similar syntactic characteristics, such as Korean.</p>
+      <section id="avoid-excessively-long-prenominal-modifier-clauses">
+        <h2>Avoid excessively long prenominal modifier clauses （修飾節は長いものから示すか、できれば文を分ける）</h2>
+        <p>Japanese text sometimes contains prenominal modifier clauses, in which a clause precedes and modifies a noun. When such modifier clauses become long, readers must retain the entire modifier in working memory until they finally encounter the head noun.</p>
+        <p>As an example, consider an English sentence:</p>
+        <p>The report that the committee established last year and that several experts later reviewed was approved yesterday.</p>
+        <p>If we adopt the Japanese word order, these “that” clauses occur <em>before </em>“The report”.  While reading these two clauses, readers do not know what is the topic of this sentence.</p>
+        <p>This substantially increases cognitive load and can make sentences difficult to understand, particularly for people with cognitive or reading disabilities. Where possible, excessively long prenominal modifier clauses should be avoided or split into separate sentences.</p>
+        <p>Note: This requirement illustrates an important limitation of a stable, monolithic accessibility standard. WCAG 3 currently includes <em>No nested clauses</em> as an individual language-related requirement. However, nested clauses are only one source of syntactic complexity and are particularly relevant to some languages, such as English. In Japanese, excessively long prenominal modifier clauses are often a more significant source of reading difficulty. Similar language-specific syntactic accessibility requirements are likely to exist in many other languages. Therefore, if language-specific syntactic requirements are to be included, they should be maintained through a modular architecture or a Living Standard, rather than being permanently fixed in a single monolithic specification.</p>
+      </section>
+      <section id="avoid-long-chains-of-loosely-connected-clauses">
+        <h2>Avoid long chains of loosely connected clauses （接続助詞や中止法を多用しない）</h2>
+        <p>English also has constructions in which the relationship between clauses is left somewhat implicit, as in <strong>"Walking down the street, I met John."</strong> However, these constructions are relatively uncommon in ordinary prose. Japanese relies much more extensively on loosely connected clauses, making long clause chains a more significant readability concern.</p>
+        <p>4.3  Avoid repeated use of the same grammatical marker when it makes sentence structure difficult to follow （同じ助詞を連続して使わない）</p>
+        <p>Japanese frequently uses the same grammatical marker repeatedly, such as the particle <em>no</em> ("of"), to connect a series of nouns or noun phrases. Repeated use of the same grammatical marker can make it difficult for readers to recognize the syntactic structure of a sentence. Because each occurrence looks identical, readers must rely on working memory to determine how phrases are grouped and how they relate to one another. This can increase cognitive load, particularly in long or complex sentences.</p>
+      </section>
+      <section id="use-punctuation-so-that-syntactic-boundaries-and-modifier-relationships-are-clear">
+        <h2>Use punctuation so that syntactic boundaries and modifier relationships are clear （読点の付け方によって意味が変わる場合があることに注意する）</h2>
+        <p>Punctuation is not merely a matter of style. It provides visual cues that help readers recognize the syntactic structure of a sentence. Clear punctuation reduces the effort required to identify clause boundaries and modifier relationships, especially in long or syntactically complex sentences.</p>
+      </section>
+      <section id="maintaining-clear-subject-predicate-correspondence">
+        <h2>Maintaining clear subject–predicate correspondence（主語と述語の関係が分かるようにする）</h2>
+        <p>Because Japanese is a head-final language, the predicate typically appears at the end of the sentence, while the subject or topic appears earlier and may be separated from the predicate by a long sequence of modifiers or subordinate material. Clear writing therefore requires maintaining an easily recognizable relationship between the subject (or topic) and the predicate.</p>
+      </section>
+      <section id="short-dependency-distance">
+        <h2>Short Dependency Distance（係る語とそれを受ける語、指示語と指示される語は近くに置く）</h2>
+        <p>To be supplied.</p>
+      </section>
+      <section id="avoid-ambiguous-attachment">
+        <h2>Avoid Ambiguous Attachment（言葉の係り方によって複数の意味に取れることがないようにする）</h2>
+        <p>To be supplied.</p>
+      </section>
+    </section>
+</body>
+</html>
